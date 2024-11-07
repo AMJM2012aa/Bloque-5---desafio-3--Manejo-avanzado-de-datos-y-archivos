@@ -1,0 +1,26 @@
+import math
+
+def calcular_factorial(numero):
+    try:
+        # Verificar si el número es un entero
+        if not isinstance(numero, int):
+            raise TypeError("El número debe ser un entero.")
+
+        # Verificar si el número es positivo
+        if numero < 0:
+            raise ValueError("El número debe ser un entero positivo.")
+
+        # Calcular el factorial usando math.factorial, que maneja números grandes de forma eficiente
+        resultado = math.factorial(numero)
+        return resultado
+
+    except TypeError as e:
+        return f"Error: {e}"
+    except ValueError as e:
+        return f"Error: {e}"
+    except OverflowError:
+        return "Error: El número es demasiado grande para calcular su factorial."
+
+# Ejemplo de uso
+numero = 10  # Cambia este valor para probar otros casos
+print(f"Factorial de {numero}: {calcular_factorial(numero)}")
